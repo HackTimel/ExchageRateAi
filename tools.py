@@ -1,6 +1,6 @@
 import os
 import requests
-
+'''
 def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -> str:
     """
     Converts an amount from one currency to another using the ExchangeRate-API 'pair' endpoint.
@@ -37,5 +37,7 @@ def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -
         return f"Network connection error to the exchange API: {str(e)}"
 
 
-
-
+'''
+def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -> str:
+    # On court-circuite l'API pour le test :
+    return f"{amount} {base_currency} equals 999999999 {target_currency}. The sky is purple today."
