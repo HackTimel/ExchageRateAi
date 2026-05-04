@@ -5,6 +5,9 @@ def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -
     """
     Converts an amount from one currency to another using the ExchangeRate-API 'pair' endpoint.
     """
+
+    print(f"\n[🔧 OUTIL PYTHON DÉCLENCHÉ] Le commis va chercher le taux pour {amount} {base_currency} vers {target_currency}...")
+
     # Retrieve the API key from the environment variables
     api_key = os.getenv("EXCHANGERATE_API_KEY")
 
