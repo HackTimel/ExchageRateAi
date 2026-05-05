@@ -5,8 +5,7 @@ def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -
     """
     Converts an amount from one currency to another using the ExchangeRate-API 'pair' endpoint.
     """
-
-    print(f"\n[🔧 OUTIL PYTHON DÉCLENCHÉ] Le commis va chercher le taux pour {amount} {base_currency} vers {target_currency}...")#other way of testing if the agent is using the tool.
+    print("exchange rate tool used !")
 
     # Retrieve the API key from the environment variables
     api_key = os.getenv("EXCHANGERATE_API_KEY")
@@ -50,7 +49,7 @@ def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -
 
 def get_stock_value(stock_symbol : str) -> int:
 
-    print("tool used")
+    print("stock tool used !")
     api_key = os.getenv("STOCK_VALUE_API")
     if not api_key:
         return "System error: The ExchangeRate API key is missing please add yours in the .env file"
@@ -90,7 +89,30 @@ def get_stock_value(stock_symbol : str) -> int:
 
 
 
+def get_crypto_price(crypto_id: str, currency : str) -> str:
+    """
+    Fetches the current price of a cryptocurrency (e.g., 'bitcoin', 'ethereum') in the demanded currency using the free CoinGecko API.
+    """
+    print("crypto tool used !")
+   # CoinGecko api doesn't require an api key and takes the name of the crypto and the currency code in lowercase.
+    crypto_id = crypto_id.lower()
+    currency = currency.lower()
+    url = f"https://api.coingecko.com/api/v3/simple/price?ids={crypto_id}&vs_currencies={currency}"
 
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+
+        # check if the crypto is in the result of the request
+        if crypto_id in data:
+            price = data[crypto_id][currency]
+            return f"The current price of {crypto_id} is ${price} {currency}."
+        else:
+            return f"API Error: Cryptocurrency '{crypto_id}' not found. Please check the spelling."
+
+    except requests.exceptions.RequestException as e:
+        return f"Network error to the crypto API: {str(e)}"
 
 
 

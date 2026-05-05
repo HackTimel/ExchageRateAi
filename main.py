@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
-from tools import get_exchange_rate, get_stock_value
+from tools import get_exchange_rate, get_stock_value,get_crypto_price 
 
 # Load secrets from the .env file
 load_dotenv()
@@ -25,7 +25,7 @@ def start_interactive_chat():
     chat = client.chats.create(
         model="gemini-3.1-flash-lite-preview",
         config=types.GenerateContentConfig(
-            tools=[get_exchange_rate, get_stock_value], 
+            tools=[get_exchange_rate, get_stock_value, get_crypto_price], 
             temperature=0.0,   #i've put this setting to 0 to have more factual answers.
             system_instruction=system_rules
         )
