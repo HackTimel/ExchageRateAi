@@ -40,7 +40,6 @@ def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -
 
 this was the test to see if the ai agent is really using the tool get exchange rate. It works by giving false result in any cases so i can see if the agent used the tool.
 def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -> str:
-    # On court-circuite l'API pour le test :
     return f"{amount} {base_currency} equals 999999999 {target_currency}. The sky is purple today."
 '''
 
@@ -86,41 +85,6 @@ def get_stock_value(stock_symbol : str) -> int:
         
     except requests.exceptions.RequestException as e:
         return f"Network connection error to the stock API: {str(e)}"
-
-
-
-def get_crypto_price(crypto_id: str, currency : str) -> str:
-    """
-    Fetches the current price of a cryptocurrency (e.g., 'bitcoin', 'ethereum') in the demanded currency using the free CoinGecko API.
-    """
-    print("crypto tool used !")
-   # CoinGecko api doesn't require an api key and takes the name of the crypto and the currency code in lowercase.
-    crypto_id = crypto_id.lower()
-    currency = currency.lower()
-    url = f"https://api.coingecko.com/api/v3/simple/price?ids={crypto_id}&vs_currencies={currency}"
-
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        data = response.json()
-
-        # check if the crypto is in the result of the request
-        if crypto_id in data:
-            price = data[crypto_id][currency]
-            return f"The current price of {crypto_id} is ${price} {currency}."
-        else:
-            return f"API Error: Cryptocurrency '{crypto_id}' not found. Please check the spelling."
-
-    except requests.exceptions.RequestException as e:
-        return f"Network error to the crypto API: {str(e)}"
-
-
-
-
-
-
-
-
 
 
 
