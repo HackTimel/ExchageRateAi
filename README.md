@@ -5,8 +5,8 @@ A Python-based intelligent agent that uses external tools to answer financial qu
 ## Features & Tools
 
 This agent is equipped with 2 specific tools:
-1. **Currency Converter (ExchangeRate-API)**: Converts amounts between global currencies using live rates.
-2. **Stock Market Tracker (Alpha Vantage API)**: Fetches the latest daily closing price for global equities.
+1. **Currency Converter ([ExchangeRate-API](https://www.exchangerate-api.com/))**: Converts amounts between global currencies using live rates.
+2. **Stock Market Tracker ([Alpha Vantage API](https://www.alphavantage.co/))**: Fetches the latest daily closing price for global equities.
 
 
 ## Tech Stack
