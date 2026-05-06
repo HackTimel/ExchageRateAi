@@ -22,16 +22,50 @@ You need Python installed on your computer and API keys for Google Gemini, Excha
 
 ```
 git clone https://github.com/HackTimel/ExchageRateAi.git
-
 ```
 
 
 ### 2. Set up the Virtual Environment
 
 # On Windows
+```
 python -m venv venv
+```
+```
 venv\Scripts\activate
-
+```
 # On macOS / Linux
+```
 python3 -m venv venv
+```
+```
 source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```
+pip install -r requirements.txt
+```
+
+
+### 4. Setup Environment Variables
+
+Create a file named .env in the root folder of the project. Add your API keys inside:
+
+```
+GEMINI_API_KEY=your_gemini_key_here
+EXCHANGERATE_API_KEY=your_exchangerate_key_here
+STOCK_VALUE_API=your_alphavantage_key_here
+```
+
+
+### 5. Run the Agent
+
+Start the interactive terminal session by running:
+
+```
+python main.py
+```
+
+You can now chat with the AI! Type quit, exit or q to stop the program. 
