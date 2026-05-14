@@ -7,6 +7,13 @@ def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -
     """
     print("exchange rate tool used !")
 
+    if amount < 0:
+        return "Input Error: Amount cannot be negative."
+    if not base_currency or len(base_currency.strip()) != 3:
+        return "Input Error: Base currency must be a 3-letter code (e.g. EUR)."
+    if not target_currency or len(target_currency.strip()) != 3:
+        return "Input Error: Target currency must be a 3-letter code (e.g. USD)."
+
     # Retrieve the API key from the environment variables
     api_key = os.getenv("EXCHANGERATE_API_KEY")
 
@@ -46,9 +53,15 @@ def get_exchange_rate(amount: float, base_currency: str, target_currency: str) -
 
 
 
-def get_stock_value(stock_symbol : str) -> int:
-
+def get_stock_value(stock_symbol: str) -> str:
+    """
+    Returns the latest daily closing price for a given stock symbol using Alpha Vantage.
+    """
     print("stock tool used !")
+
+    if not stock_symbol or not stock_symbol.strip():
+        return "Input Error: Stock symbol cannot be empty."
+
     api_key = os.getenv("STOCK_VALUE_API")
     if not api_key:
         return "System error: The ExchangeRate API key is missing please add yours in the .env file"
