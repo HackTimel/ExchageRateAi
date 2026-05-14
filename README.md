@@ -6,7 +6,7 @@ A Python-based intelligent agent that uses external tools to answer financial qu
 
 This agent is equipped with 2 specific tools:
 1. **Currency Converter ([ExchangeRate-API](https://www.exchangerate-api.com/))**: Converts amounts between global currencies using live rates.
-2. **Stock Market Tracker ([Alpha Vantage API](https://www.alphavantage.co/))**: Fetches the latest daily closing price for global equities.
+2. **Stock Market Tracker ([Alpha Vantage API](https://www.alphavantage.co/)**: Fetches the latest daily closing price for global equities.
 
 
 ## Tech Stack
@@ -85,4 +85,4 @@ pytest test_tools.py
 pytest test_integration.py
 ```
 
-No API keys are required to run the tests — all external API calls are mocked.
+No API keys are required to run the tests, all external API calls are mocked.
