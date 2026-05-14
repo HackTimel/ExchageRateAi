@@ -69,3 +69,20 @@ python main.py
 ```
 
 You can now chat with the AI! Type quit, exit or q to stop the program. 
+
+
+### 6. Run the Tests
+
+Navigate to the tests folder and run either test file with pytest:
+
+```
+cd tests
+```
+```
+pytest test_tools.py
+```
+```
+pytest test_integration.py
+```
+
+No API keys are required to run the tests — all external API calls are mocked.
